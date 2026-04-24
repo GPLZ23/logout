@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>Sesión Cerrada - BMC Helix</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Fuente moderna -->
+    <!-- Fuente -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: #f7f9fc;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,31 +21,23 @@
             background-position: center;
         }
 
-        .background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #6b7280, #3b82f6);
-            z-index: -1;
-        }
-
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.774);
+            background: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             max-width: 420px;
             width: 90%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .logo {
             width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .image {
+            width: 160px;
             margin-bottom: 20px;
         }
 
@@ -58,7 +48,7 @@
 
         p {
             font-size: 14px;
-            color: #6b7280;
+            color: #555;
             margin-bottom: 25px;
         }
 
@@ -70,52 +60,53 @@
             text-decoration: none;
             border-radius: 8px;
             font-size: 14px;
-            transition: 0.3s;
         }
 
         .btn:hover {
             background: #e64e17;
         }
 
-        .image {
-            width: 180px;
-            margin-bottom: 20px;
-        }
-
         .footer {
             margin-top: 20px;
             font-size: 12px;
-            color: #848993;
+            color: #777;
         }
     </style>
+
+    <!-- Limpieza básica (no toca ISAM, pero ayuda UX) -->
+    <script>
+        try {
+            localStorage.clear();
+            sessionStorage.clear();
+        } catch(e) {}
+    </script>
+
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <!-- Logo opcional -->
-        <img src="https://res.cloudinary.com/dgygyevf5/image/upload/v1777066817/cerrar-sesion_e836by.png" class="logo"
-            alt="BMC Helix">
+    <img src="https://res.cloudinary.com/dgygyevf5/image/upload/v1777066817/cerrar-sesion_e836by.png" class="logo" alt="logout">
 
-        <!-- Ilustración -->
-        <img src="https://res.cloudinary.com/dgygyevf5/image/upload/v1777066778/BMC-Helix-Logo_az4q3o.png" class="image"
-            alt="logout">
-        <h1>Sesión cerrada correctamente</h1>
+    <img src="https://res.cloudinary.com/dgygyevf5/image/upload/v1777066778/BMC-Helix-Logo_az4q3o.png" class="image" alt="BMC Helix">
 
-        <p>
-            Has cerrado sesión en la plataforma BMC Helix.
-            Si deseas continuar, puedes volver a iniciar sesión.
-        </p>
+    <h1>Sesión cerrada correctamente</h1>
 
-        <a href="https://oidc2.claro.com.pe/mga/sps/oauth/oauth20/authorize?client_id=oidc2&response_type=code&redirect_uri=https://datacenterclaroperu-rsso-dev.onbmc.com/rsso/redirect&scope=openid%20profile" class="btn">Volver a iniciar sesión</a>
+    <p>
+        Tu sesión ha sido cerrada.<br>
+        Para continuar, inicia sesión nuevamente en la plataforma.
+    </p>
 
-        <div class="footer">
-            © 2026 Automatizaciones Procesos - Todos los derechos reservados
-        </div>
+    <a href="https://datacenterclaroperu-itom-dev.onbmc.com" class="btn">
+        Volver a iniciar sesión
+    </a>
 
+    <div class="footer">
+        © 2026 Automatizaciones Procesos
     </div>
 
-</body>
+</div>
 
+</body>
 </html>
